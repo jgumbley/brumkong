@@ -3,6 +3,7 @@ define green
 endef
 
 in_venv=venv/bin/activate
+in_docker_machine=$(shell docker-machine env devdocker)
 
 .PHONY: run
 run:
@@ -11,6 +12,10 @@ run:
 .PHONY: default¬
 default: venv clean_pyc flake8 unit_tests coverage
 	$(call green,"[All steps successful]")
+
+.PHONY:
+docker:
+	eval "$(in_docker_machine)"; docker ps
 
 .PHONY: venv
 venv: venv/bin/activate
