@@ -4,6 +4,10 @@ endef
 
 in_venv=venv/bin/activate
 
+.PHONY: run
+run:
+	heroku local
+
 .PHONY: default¬
 default: venv clean_pyc flake8 unit_tests coverage
 	$(call green,"[All steps successful]")
