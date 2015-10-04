@@ -6,16 +6,28 @@ in_venv=venv/bin/activate
 in_docker_machine=$(shell docker-machine env devdocker)
 
 .PHONY: run
-run:
-	heroku local
+run: venv
+	. $(in_venv); export DATABASE_URL=postgres://USER:PASSWORD@HOST:PORT/NAME; \
+	   	python manage.py createsuperuser
+	. $(in_venv); heroku local
 
 .PHONY: default¬
 default: venv clean_pyc flake8 unit_tests coverage
 	$(call green,"[All steps successful]")
 
-.PHONY:
-docker:
+.PHONY: dps
+dps:
 	eval "$(in_docker_machine)"; docker ps
+
+.PHONY: docker
+docker:
+	eval "$(in_docker_machine)"; docker run -p 5432:5432 --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -d postgres
+
+.PHONY: dockerkill
+dockerkill:
+	#eval "$(in_docker_machine)"; docker kill some-postgres
+	eval "$(in_docker_machine)"; docker rm some-postgres
+
 
 .PHONY: venv
 venv: venv/bin/activate
