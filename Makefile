@@ -3,13 +3,13 @@ define green
 endef
 
 in_venv=venv/bin/activate
+with_db=export DATABASE_URL=postgres://postgres:mysecretpassword@192.168.99.100:5432/postgres
 in_docker_machine=$(shell docker-machine env devdocker)
 
 .PHONY: run
 run: venv
-	. $(in_venv); export DATABASE_URL=postgres://postgres:mysecretpassword@192.168.99.100:5432/postgres; \
-	   	python manage.py syncdb
-	. $(in_venv); heroku local
+	. $(in_venv); $(with_db); python manage.py syncdb
+	. $(in_venv); $(with_db); heroku local
 
 .PHONY: default¬
 default: venv clean_pyc flake8 unit_tests coverage
