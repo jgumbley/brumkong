@@ -7,8 +7,8 @@ in_docker_machine=$(shell docker-machine env devdocker)
 
 .PHONY: run
 run: venv
-	. $(in_venv); export DATABASE_URL=postgres://USER:PASSWORD@HOST:PORT/NAME; \
-	   	python manage.py createsuperuser
+	. $(in_venv); export DATABASE_URL=postgres://postgres:mysecretpassword@192.168.99.100:5432/postgres; \
+	   	python manage.py syncdb
 	. $(in_venv); heroku local
 
 .PHONY: default¬
@@ -17,17 +17,16 @@ default: venv clean_pyc flake8 unit_tests coverage
 
 .PHONY: dps
 dps:
-	eval "$(in_docker_machine)"; docker ps
+	eval "$(in_docker_machine)"; docker images
 
-.PHONY: docker
-docker:
-	eval "$(in_docker_machine)"; docker run -p 5432:5432 --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -d postgres
+.PHONY: database
+database:
+	eval "$(in_docker_machine)"; docker run -p 5432:5432 --name some-postgres \
+		-e POSTGRES_PASSWORD=mysecretpassword -d postgres
 
-.PHONY: dockerkill
-dockerkill:
-	#eval "$(in_docker_machine)"; docker kill some-postgres
-	eval "$(in_docker_machine)"; docker rm some-postgres
-
+.PHONY: dockerclean
+dockerclean:
+	eval "$(in_docker_machine)"; docker rm -f some-postgres
 
 .PHONY: venv
 venv: venv/bin/activate
@@ -60,5 +59,5 @@ coverage:
 	$(call green,"[Generated coverage report]")
 
 .PHONY: clean
-clean:
+clean: dockerclean
 	rm -Rf venv
