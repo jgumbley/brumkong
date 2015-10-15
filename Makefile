@@ -55,7 +55,8 @@ unit_tests:
 
 .PHONY: coverage
 coverage:
-	. $(in_venv); nosetests --attr '!integration,!wip' --exclude-dir=venv/ --with-coverage --cover-package=sys -q
+	. $(in_venv); nosetests --attr '!integration,!wip' --exclude-dir=venv/ --with-coverage \
+		--cover-package=brumkong -q
 	$(call green,"[Generated coverage report]")
 
 .PHONY: clean
