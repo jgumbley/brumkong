@@ -46,7 +46,7 @@ clean_pyc:
 flake8:
 	. $(in_venv); flake8 . \
         --exclude venv/,.ropeproject,windows,loader.py \
-		--ignore E501,E122
+		--ignore E501,E122,F401
 	$(call green,"[Static analysis (flake8) successful]")
 
 .PHONY: unit_tests
