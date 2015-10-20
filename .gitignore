@@ -2,3 +2,4 @@
 venv/
 .coverage
 nosetests.xml
+.DS_Store
