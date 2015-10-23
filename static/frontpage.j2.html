@@ -4,27 +4,44 @@
     <style type="text/css">
        body { font-family:"Courier New", Courier, monospace; }
        p { 
-            font-family:Arial, Helvetica Neue, Helvetica, sans-serif;
+            font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
             line-height: 1.5em; 
        }
+       br {
+           clear: both;
+           float: none;
+           display: block;
+          }
        h1 {
-           font-family: 'Franklin Gothic Medium', 'Franklin Gothic', 'ITC Franklin Gothic', Arial, sans-serif;
+           margin: 0;
+       }
+       h2 {
+-          font-family: 'Franklin Gothic Medium', 'Franklin Gothic', 'ITC Franklin Gothic', Arial, sans-serif;
            font-size: 3em;
        }
        div.wrapper { 
             max-width: 964px;
        }
-       div.kong { 
-            text-align: center;
+       div.logo {
+           max-width: 810px;
+           float: left;
+       }
+       div.topad {
+           display: none;
+       }
+       div.date { 
+           text-align: center;
+           clear: all;
+           display: block;
+           float: none;
        }
        div.leader { 
             max-width: 690px;
             float: left;
        }
        div.footer { 
-            width: 100%;
-            float: none;
-            clear: both;
+           clear: all;
+           display: block;
        }
        ul { line-height: 1.7em; }
        @media only screen and (min-device-width : 0px) and (max-device-width : 500px) {
@@ -40,9 +57,12 @@
             div.wrapper { 
                 margin-left: auto; margin-right: auto;
             }
-           div.grabbag { 
-                max-width: 200px;
-                float: right;
+           div.topad {
+               display: block;
+               width: 128px;
+               height: 128px;
+               background: black;
+               float: right;
            }
        }
     </style>
@@ -51,14 +71,20 @@
 
 <body>
 <div class="wrapper">
-    <div class="kong">
-        <img src='/static/brumkong_masthead1.png' alt="picture of brumkong" width="100%"/>
-    <hr/>
-    <i>21st October 2015</i>
-    <hr/>
+    <div class="logo">
+        <h1><img src='/static/brumkong_masthead1.png' alt="BrumKong" width="100%"/></h1>
+    </div>
+    <div class="topad">
+        x
+    </div>
+    <br/>
+    <div class="date">
+        <hr/>
+        <i>21st October 2015</i>
+        <hr/>
     </div>
     <div class="leader">
-        <h1>Birmingham can only move 'forward' when Bore steps back</h1>
+        <h2>Birmingham can only move 'forward' when Bore steps back</h2>
         <img alt="A picture of Albert Bore" src="static/bore.jpg"/>
         <p>BrumKong thinks that most Brummies will be bored senseless by the current plot to kick Albert Bore out of his job as leader of Birmingham City Council. But, behind the smokescreen at the Council House, something quite exciting could be about to happen.</p>
 
@@ -70,7 +96,7 @@
         <h5><i>Posted</i> 21st October 2015</i></h5>
     <hr/>
     </div>
-    <div id="grabbag">
+    <div class="grabbag">
         <h4>Browse:</h4>
         <ul>
             <li><a href="/speaks/">Speaks:</a> From the gorilla's mouth</li>
@@ -79,7 +105,8 @@
             <li><a href="/kong-o-tron/">Kong-O-Tron:</a> Welcome to the app store</li>
         </ul>
     </div>
-    <div id="footer">
+    <br/>
+    <div class="footer">
         <hr/>
         <h4>Follow:</h4>
         <ul>
