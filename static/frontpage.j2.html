@@ -12,17 +12,38 @@
            font-size: 3em;
        }
        div.wrapper { 
-            max-width: 700px;
+            max-width: 964px;
        }
        div.kong { 
             text-align: center;
        }
+       div.leader { 
+            max-width: 690px;
+            float: left;
+       }
+       div.footer { 
+            width: 100%;
+            float: none;
+            clear: both;
+       }
        ul { line-height: 1.7em; }
-       @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+       @media only screen and (min-device-width : 0px) and (max-device-width : 500px) {
+            img { max-width: 100%; }
+            h1 {
+               font-size: 2em;
+            }
+       }
+       @media only screen and (min-device-width : 501px) and (max-device-width : 970px) {
             img { max-width: 100%; }
        }
-       @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
-            img { max-width: 100%; }
+       @media only screen and (min-device-width : 970px) {
+            div.wrapper { 
+                margin-left: auto; margin-right: auto;
+            }
+           div.grabbag { 
+                max-width: 200px;
+                float: right;
+           }
        }
     </style>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -36,29 +57,36 @@
     <i>21st October 2015</i>
     <hr/>
     </div>
-    <h1>Birmingham can only move 'forward' when Bore steps back</h1>
-    <img alt="A picture of Albert Bore" src="static/bore.jpg"/>
-    <p>BrumKong thinks that most Brummies will be bored senseless by the current plot to kick Albert Bore out of his job as leader of Birmingham City Council. But, behind the smokescreen at the Council House, something quite exciting could be about to happen.</p>
+    <div class="leader">
+        <h1>Birmingham can only move 'forward' when Bore steps back</h1>
+        <img alt="A picture of Albert Bore" src="static/bore.jpg"/>
+        <p>BrumKong thinks that most Brummies will be bored senseless by the current plot to kick Albert Bore out of his job as leader of Birmingham City Council. But, behind the smokescreen at the Council House, something quite exciting could be about to happen.</p>
 
-    <p>Lets start with Albert Bore. Surely he should be doing his victory dance now? His long term plan to breathe fresh life into the city centre has worked! Just this month Grand Central and the updated New Street station have opened. That and there are cranes building new buildings all over the city centre. Work on the new HSBC headquarters opposite the library has started. Demolition crews have started to pull down the frankly ugly old central library. Demand for office space is at a new high. Albert Bore deserves all the credit he gets for stopping the urban rot in the city centre.</p>
+        <p>Lets start with Albert Bore. Surely he should be doing his victory dance now? His long term plan to breathe fresh life into the city centre has worked! Just this month Grand Central and the updated New Street station have opened. That and there are cranes building new buildings all over the city centre. Work on the new HSBC headquarters opposite the library has started. Demolition crews have started to pull down the frankly ugly old central library. Demand for office space is at a new high. Albert Bore deserves all the credit he gets for stopping the urban rot in the city centre.</p>
 
-    <p>Problem is that Birmingham is more than its city centre. Like any large, youthful, growing city Birmingham has lots of ways government services, local politics and community action can make things better. Grassroots Brummies, London thinktanks and Westminster tasksforces have been saying this for for years. Lets have a council leader focussed on skills for young people. Lets have a council leader focussed on better public transport. Lets have a council leader who will get the right help to address poverty and unemployment.</p>
+        <p>Problem is that Birmingham is more than its city centre. Like any large, youthful, growing city Birmingham has lots of ways government services, local politics and community action can make things better. Grassroots Brummies, London thinktanks and Westminster tasksforces have been saying this for for years. Lets have a council leader focussed on skills for young people. Lets have a council leader focussed on better public transport. Lets have a council leader who will get the right help to address poverty and unemployment.</p>
 
-    <p>BrumKong doesn't know who the next leader of the council will be, nor does he particularly care right now. That is a question for another day. But despite his dazzling work on the city centre, today the only way for Birmingham to march 'forward' is for Albert Bore to take a step back.</p>
-    <h5><i>Posted</i> 21st October 2015</i></h5>
+        <p>BrumKong doesn't know who the next leader of the council will be, nor does he particularly care right now. That is a question for another day. But despite his dazzling work on the city centre, today the only way for Birmingham to march 'forward' is for Albert Bore to take a step back.</p>
+        <h5><i>Posted</i> 21st October 2015</i></h5>
     <hr/>
-    <h4>Browse:</h4>
-    <ul>
-        <li><a href="/speaks/">Speaks:</a> From the gorilla's mouth</li>
-        <li><a href="/tries/">Tries:</a> A random guide to Birmingham</li>
-        <li><a href="/welcomes/">Welcomes:</a> Curated content from friends</li>
-        <li><a href="/kong-o-tron/">Kong-O-Tron:</a> Welcome to the app store</li>
-    </ul>
-    <h4>Follow:</h4>
-    <ul>
-        <li><a href="https://www.twitter.com/BrumKong">On Twitter</a></li>
-        <li><a href="https://www.facebook.com/BrumKong">On Facebook</a></li>
-    </ul>
+    </div>
+    <div id="grabbag">
+        <h4>Browse:</h4>
+        <ul>
+            <li><a href="/speaks/">Speaks:</a> From the gorilla's mouth</li>
+            <li><a href="/tries/">Tries:</a> A random guide to Birmingham</li>
+            <li><a href="/welcomes/">Welcomes:</a> Curated content from friends</li>
+            <li><a href="/kong-o-tron/">Kong-O-Tron:</a> Welcome to the app store</li>
+        </ul>
+    </div>
+    <div id="footer">
+        <hr/>
+        <h4>Follow:</h4>
+        <ul>
+            <li><a href="https://www.twitter.com/BrumKong">On Twitter</a></li>
+            <li><a href="https://www.facebook.com/BrumKong">On Facebook</a></li>
+        </ul>
+    </div>
 </div>
 </body>
 
