@@ -21,11 +21,6 @@ run: dockerdb venv
 dockerdb:
 	eval "$(in_docker_machine)"; docker start some-postgres
 
-.PHONY: dockerhost
-dockerhost:
-	docker-machine create --driver virtualbox $(docker_host)
-	eval "$(in_docker_machine)"; docker run -p 5432:5432 --name some-postgres \
-		-e POSTGRES_PASSWORD=mysecretpassword -d postgres
 
 .PHONY: venv
 venv: venv/bin/activate
@@ -58,16 +53,22 @@ coverage:
 		--cover-package=brumkong -q
 	$(call green,"[Generated coverage report]")
 
-.PHONY: dockerclean
-dockersparkle:
-	docker-machine rm devdocker
-
-.PHONY: dockerclean
-dockerclean:
-	eval "$(in_docker_machine)"; docker rm -f some-postgres
-
 .PHONY: clean
-clean: dockerclean
+clean:
 	rm -Rf venv
 
+# Essential local environment lifecycle helpers:
+# docker-machine and virtualbox required
+
+.PHONY: dockerenv
+dockerenv:
+	docker-machine create --driver virtualbox $(docker_host)
+	eval "$(in_docker_machine)"; docker run -p 5432:5432 --name some-postgres \
+		-e POSTGRES_PASSWORD=mysecretpassword -d postgres
+	$(call green,"[Created docker environment]")
+
+.PHONY: dockersparkle
+dockersparkle:
+	docker-machine rm $(docker_host)
+	$(call green,"[Cleaned up docker environment]")
 
