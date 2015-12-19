@@ -3,9 +3,10 @@ define green
 endef
 
 in_venv=venv/bin/activate
-with_db=export DATABASE_URL=postgres://postgres:mysecretpassword@192.168.99.100:5432/postgres
 docker_host=kongdocker
+docker_db_container=some-postgres
 in_docker_machine=$(shell docker-machine env $(docker_host))
+with_db=export DATABASE_URL=postgres://postgres:mysecretpassword@192.168.99.100:5432/postgres
 
 .PHONY: test
 test: venv clean_pyc flake8 unit_tests coverage
@@ -19,8 +20,7 @@ run: dockerdb venv
 
 .PHONY: dockerdb
 dockerdb:
-	eval "$(in_docker_machine)"; docker start some-postgres
-
+	eval "$(in_docker_machine)"; docker start $(docker_db_container)
 
 .PHONY: venv
 venv: venv/bin/activate
@@ -63,9 +63,13 @@ clean:
 .PHONY: dockerenv
 dockerenv:
 	docker-machine create --driver virtualbox $(docker_host)
-	eval "$(in_docker_machine)"; docker run -p 5432:5432 --name some-postgres \
-		-e POSTGRES_PASSWORD=mysecretpassword -d postgres
+	make dockercreate
 	$(call green,"[Created docker environment]")
+
+.PHONY: dockercreate
+dockercreate:
+	eval "$(in_docker_machine)"; docker run -p 5432:5432 --name $(docker_db_container) \
+		-e POSTGRES_PASSWORD=mysecretpassword -d postgres -progress=bar
 
 .PHONY: dockersparkle
 dockersparkle:
