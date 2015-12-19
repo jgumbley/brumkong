@@ -4,7 +4,7 @@ endef
 
 in_venv=venv/bin/activate
 docker_host=kongdocker
-docker_db_container=some-postgres
+docker_db_container=kongdb
 in_docker_machine=$(shell docker-machine env $(docker_host))
 with_db=export DATABASE_URL=postgres://postgres:mysecretpassword@192.168.99.100:5432/postgres
 
@@ -69,10 +69,10 @@ dockerenv:
 .PHONY: dockercreate
 dockercreate:
 	eval "$(in_docker_machine)"; docker run -p 5432:5432 --name $(docker_db_container) \
-		-e POSTGRES_PASSWORD=mysecretpassword -d postgres -progress=bar
+		-e POSTGRES_PASSWORD=mysecretpassword -d postgres
 
 .PHONY: dockersparkle
 dockersparkle:
-	docker-machine rm $(docker_host)
+	docker-machine rm -f $(docker_host)
 	$(call green,"[Cleaned up docker environment]")
 
