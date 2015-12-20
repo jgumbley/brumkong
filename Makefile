@@ -70,6 +70,8 @@ dockerenv:
 dockercreate:
 	eval "$(in_docker_machine)"; docker run -p 5432:5432 --name $(docker_db_container) \
 		-e POSTGRES_PASSWORD=mysecretpassword -d postgres
+	eval "$(in_docker_machine)"; docker run -p 4569:4569 --name brumkong_s3 \
+		-d lphoward/fake-s3
 
 .PHONY: dockersparkle
 dockersparkle:
