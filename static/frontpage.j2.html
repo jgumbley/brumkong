@@ -6,17 +6,56 @@
             font-family:"Courier New", Courier, monospace;
             font-style: italic;
        }
+       div.kong-image {
+            max-width: 800px;
+            float: left;
+       }
+       div.kong-twentyfive {
+
+            float: right;
+            background-color: red;
+            width: 170px;
+            height: 120px;
+            font-size: 45px;
+       }
+       div.kong-date {
+            width: 100%;
+            float: none;
+            clear: both;
+       }
        div.leader { 
             max-width: 690px;
             float: left;
        }
+
+       @media (min-device-width : 0px) and (max-device-width : 960px) {
+           div.kong-twentyfive {
+                visiblity: hidden;
+                display: none;
+           }
+       }
+
+       @media only screen and (min-device-width : 970px) {
+           div.kong-twentyfive {
+                visiblity: visible;
+                display: block;
+           }
+       }
 {% endblock %}
 {% block masthead %}
     <div class="kong">
-        <img src='/static/brumkong_masthead1.png' alt="picture of brumkong" width="100%"/>
-        <hr/>
-        19th December 2015
-        <hr/>
+        <div class="kong-image">
+            <img src='/static/brumkong_masthead1.png' 
+            alt="picture of brumkong" width="100%"/>
+        </div>
+        <div class="kong-twentyfive">
+            Only 25p!
+        </div>
+        <div class="kong-date">
+            <hr/>
+            19th December 2015
+            <hr/>
+        </div>
     </div>
 {% endblock %}
 {% block content %}
