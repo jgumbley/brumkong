@@ -1,6 +1,17 @@
 {% extends "base.j2.html" %}
 {% block title %}Birmingham has buildings{% endblock %}
-
+{% block css %}
+       div.proposal { 
+            max-width: 690px;
+            float: left;
+       }
+       div.proposal-topic { 
+           background-color: blue;
+       }
+       div.proposal-meat { 
+           background-color: red;
+       }
+{% endblock %}
 {% block masthead %}
     <div class="kong">
         <img src='/static/rotund.png' alt="picture of rotunda"/>
@@ -8,7 +19,6 @@
     <hr/>
     </div>
 {% endblock %}
-
 {% block content %}
     <div class="proposal-topic">Auchinlech House Five Ways | 13fl | U/C</div>
     <div class="proposal">
