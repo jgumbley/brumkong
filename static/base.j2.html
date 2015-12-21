@@ -1,0 +1,80 @@
+<html>
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <style type="text/css">
+       body { font-family:"Courier New", Courier, monospace; }
+       p { 
+            font-family:Arial, Helvetica Neue, Helvetica, sans-serif;
+            line-height: 1.5em; 
+       }
+       h1 {
+           font-family: 'Franklin Gothic Medium', 'Franklin Gothic', 'ITC Franklin Gothic', Arial, sans-serif;
+           font-size: 3em;
+       }
+       div.wrapper { 
+            max-width: 964px;
+       }
+       div.kong { 
+            text-align: center;
+       }
+       div.proposal { 
+            max-width: 690px;
+            float: left;
+       }
+       div.proposal-topic { 
+           background-color: blue;
+       }
+       div.proposal-meat { 
+           background-color: red;
+       }
+       div.footer { 
+            width: 100%;
+            float: none;
+            clear: both;
+       }
+       ul { line-height: 1.7em; }
+       @media only screen and (min-device-width : 0px) and (max-device-width : 500px) {
+            img { max-width: 100%; }
+            h1 {
+               font-size: 2em;
+            }
+       }
+       @media only screen and (min-device-width : 501px) and (max-device-width : 970px) {
+            img { max-width: 100%; }
+       }
+       @media only screen and (min-device-width : 970px) {
+            div.wrapper { 
+                margin-left: auto; margin-right: auto;
+            }
+           div.grabbag { 
+                max-width: 200px;
+                float: right;
+           }
+       }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+<div class="wrapper">
+    {% block masthead %}{% endblock %}
+    {% block content %}{% endblock %}
+    <div id="grabbag">
+        <h4>Browse:</h4>
+        <ul>
+            <li><a href="/">Frontpage:</a>Home</li>
+            <li><a href="/buildings/">Rising cores &amp; car parks:</a> Buildings</li>
+        </ul>
+    </div>
+    <div id="footer">
+        <hr/>
+        <h4>Follow:</h4>
+        <ul>
+            <li><a href="https://www.twitter.com/BrumKong">On Twitter</a></li>
+            <li><a href="https://www.facebook.com/BrumKong">On Facebook</a></li>
+        </ul>
+    </div>
+</div>
+</body>
+
+</html>
