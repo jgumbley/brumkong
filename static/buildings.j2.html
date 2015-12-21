@@ -1,6 +1,12 @@
 {% extends "base.j2.html" %}
 {% block title %}Birmingham has buildings{% endblock %}
 {% block css %}
+       div.masthead { 
+            text-align: left;
+       }
+       div.masthead-logo {
+            float: right;
+       }
        div.proposal { 
             max-width: 690px;
             float: left;
@@ -13,8 +19,10 @@
        }
 {% endblock %}
 {% block masthead %}
-    <div class="kong">
-        <img src='/static/rotund.png' alt="picture of rotunda"/>
+    <div class="masthead">
+        <div class="masthead-logo">
+            <img src='/static/rotund.png' alt="picture of rotunda"/>
+        </div>
         <h1>Rising Cores and Car Parks</h1>
     <hr/>
     </div>
