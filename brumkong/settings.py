@@ -22,7 +22,6 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'speaks',
-    'app_leader2015',
 )
 
 MIDDLEWARE_CLASSES = (
