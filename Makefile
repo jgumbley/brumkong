@@ -21,8 +21,7 @@ makemigrations:
 	. $(in_venv); $(with_db); python manage.py makemigrations
 
 .PHONY: tweets
-tweets:
-	. $(in_venv); $(with_db); python manage.py migrate
+tweets: venv
 	. $(in_venv); $(with_db); python manage.py update_tweets
 	. $(in_venv); $(with_db); python manage.py show_tweets 
 
