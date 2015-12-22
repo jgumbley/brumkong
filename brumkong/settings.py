@@ -99,4 +99,7 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
-from settings_secret import *
+try:
+    from settings_secret import *
+except Exception:
+    pass
