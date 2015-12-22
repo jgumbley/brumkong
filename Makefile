@@ -32,6 +32,7 @@ run: dockerdb venv
 
 .PHONY: dockerdb
 dockerdb:
+	docker-machine start kongdocker
 	eval "$(in_docker_machine)"; docker start $(docker_db_container)
 
 .PHONY: venv
