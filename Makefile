@@ -12,6 +12,10 @@ with_db=export DATABASE_URL=postgres://postgres:mysecretpassword@192.168.99.100:
 test: venv clean_pyc flake8 unit_tests coverage
 	$(call green,"[All steps successful]")
 
+.PHONY: tweets
+tweets:
+	. $(in_venv); $(with_db); python manage.py update_tweets
+
 .PHONY: run
 run: dockerdb venv
 	. $(in_venv); $(with_db); python manage.py migrate

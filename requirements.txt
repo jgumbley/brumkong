@@ -1,5 +1,4 @@
 Django
-django-twitter-feed
 dj-database-url
 dj-static
 gunicorn
@@ -7,3 +6,4 @@ static
 wsgiref
 psycopg2
 jinja2
+tweepy
