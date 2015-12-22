@@ -15,6 +15,7 @@ class ImportTweets:
 
     def update_tweets(self):
         raw_tweets = self._get_latest_tweets_from_api()
+        print raw_tweets
         tweets = [self._tweepy_status_to_tweet(status=status) for status in raw_tweets]
         self._replace_all_tweets(tweets)
 
