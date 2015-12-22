@@ -1,6 +1,6 @@
 from django.core.management.base import BaseCommand
 
-from twitter_feed.models import Tweet
+from speaks.models import Tweet
 
 
 class Command(BaseCommand):

@@ -1,6 +1,6 @@
 from django.core.management.base import BaseCommand
 
-from twitter_feed.import_tweets import ImportTweets
+from speaks.import_tweets import ImportTweets
 
 
 class Command(BaseCommand):

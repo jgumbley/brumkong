@@ -16,6 +16,10 @@ test: venv clean_pyc flake8 unit_tests coverage
 psql:
 	$(with_db); psql $$DATABASE_URL 
 
+.PHONY: makemigrations
+makemigrations:
+	. $(in_venv); $(with_db); python manage.py makemigrations
+
 .PHONY: tweets
 tweets:
 	. $(in_venv); $(with_db); python manage.py migrate
