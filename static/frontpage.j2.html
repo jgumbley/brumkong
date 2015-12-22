@@ -61,5 +61,9 @@
     </div>
 {% endblock %}
 {% block content %}
-    <div class="leader">Yo blair</div>
+    <div class="leader">
+        {% for tweet in tweets %}
+        <p>{{ tweet }}</p>
+        {% endfor %}
+    </div>
 {% endblock %}
