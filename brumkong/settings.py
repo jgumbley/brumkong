@@ -102,4 +102,4 @@ STATICFILES_DIRS = (
 try:
     from settings_secret import *
 except Exception:
-    pass
+    TWITTER_FEED_CONSUMER_PUBLIC_KEY = os.environ['TWITTER_FEED_CONSUMER_PUBLIC_KEY']
