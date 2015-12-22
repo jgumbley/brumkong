@@ -100,6 +100,7 @@ STATICFILES_DIRS = (
 )
 
 TWITTER_FEED_CONSUMER_PUBLIC_KEY = os.environ['TWITTER_FEED_CONSUMER_PUBLIC_KEY']
+TWITTER_FEED_CONSUMER_PUBLIC_KEY = "ppol"
 
 try:
     from settings_secret import *
