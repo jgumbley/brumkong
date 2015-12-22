@@ -14,7 +14,6 @@ test: venv clean_pyc flake8 unit_tests coverage
 
 .PHONY: run
 run: dockerdb venv
-	. $(in_venv); $(with_db); python manage.py syncdb
 	. $(in_venv); $(with_db); python manage.py migrate
 	. $(in_venv); $(with_db); heroku local
 

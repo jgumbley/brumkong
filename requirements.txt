@@ -1,4 +1,5 @@
 Django
+django-twitter-feed
 dj-database-url
 dj-static
 gunicorn

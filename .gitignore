@@ -3,3 +3,4 @@ venv/
 .coverage
 nosetests.xml
 .DS_Store
+brumkong/settings_secret.py
