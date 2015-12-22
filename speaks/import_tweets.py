@@ -16,7 +16,6 @@ class ImportTweets:
     def update_tweets(self):
         raw_tweets = self._get_latest_tweets_from_api()
         tweets = [self._tweepy_status_to_tweet(status=status) for status in raw_tweets]
-        print tweets
         self._replace_all_tweets(tweets)
 
     def _get_latest_tweets_from_api(self):
@@ -41,13 +40,7 @@ class ImportTweets:
 
     @transaction.atomic
     def _replace_all_tweets(self, new_tweets):
-        try:
-            with transaction.commit_manually():
-                Tweet.objects.remove_all()
+        Tweet.objects.remove_all()
 
-                for tweet in new_tweets:
-                    tweet.save()
-
-                transaction.commit()
-        except Exception:
-            pass
+        for tweet in new_tweets:
+            tweet.save()
