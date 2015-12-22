@@ -99,8 +99,12 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
+TWITTER_FEED_CONSUMER_PUBLIC_KEY = 'dopey'
+TWITTER_FEED_CONSUMER_SECRET = 'sleepy'
+TWITTER_FEED_OPEN_AUTH_TOKEN = 'bashful'
+TWITTER_FEED_OPEN_AUTH_SECRET = 'doc'
 
 try:
     from settings_secret import *
 except Exception:
-    TWITTER_FEED_CONSUMER_PUBLIC_KEY = os.environ['TWITTER_FEED_CONSUMER_PUBLIC_KEY']
+    pass
