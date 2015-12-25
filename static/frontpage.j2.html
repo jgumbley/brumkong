@@ -60,7 +60,7 @@
 {% block content %}
     <div class="leader">
         {% for tweet in tweets %}
-        <p>{{ tweet }}</p>
+        <p>{{ tweet.content }}</p>
         {% endfor %}
     </div>
 {% endblock %}
