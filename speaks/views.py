@@ -5,8 +5,10 @@ from speaks.models import Tweet
 
 def index(request):
     tweets = Tweet.objects.all()
+    date = "25th December 2015"
     return HttpResponse(get_template("frontpage.j2.html")
-                        .render({"tweets": tweets})
+                        .render({"tweets": tweets,
+                                 "date": date})
                         )
 
 
