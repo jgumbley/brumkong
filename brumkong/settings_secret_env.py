@@ -1,0 +1,14 @@
+"""
+Secret from the env Django settings for brumkong project.
+"""
+
+import os
+
+# For the Twitter feed
+
+TWITTER_FEED_CONSUMER_PUBLIC_KEY = os.environ['TWITTER_FEED_CONSUMER_PUBLIC_KEY']
+TWITTER_FEED_CONSUMER_SECRET = os.environ['TWITTER_FEED_CONSUMER_SECRET']
+TWITTER_FEED_OPEN_AUTH_TOKEN = os.environ['TWITTER_FEED_OPEN_AUTH_TOKEN']
+TWITTER_FEED_OPEN_AUTH_SECRET = os.environ['TWITTER_FEED_OPEN_AUTH_SECRET']
+
+

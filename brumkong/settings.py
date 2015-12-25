@@ -99,12 +99,7 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
-TWITTER_FEED_CONSUMER_PUBLIC_KEY = os.environ['TWITTER_FEED_CONSUMER_PUBLIC_KEY']
-TWITTER_FEED_CONSUMER_SECRET = os.environ['TWITTER_FEED_CONSUMER_SECRET']
-TWITTER_FEED_OPEN_AUTH_TOKEN = os.environ['TWITTER_FEED_OPEN_AUTH_TOKEN']
-TWITTER_FEED_OPEN_AUTH_SECRET = os.environ['TWITTER_FEED_OPEN_AUTH_SECRET']
-
 try:
-    from settings_secret import *
+    from settings_secret_dev import *
 except Exception:
-    pass
+    from settings_secret_env import *
