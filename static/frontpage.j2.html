@@ -60,7 +60,7 @@
 {% block content %}
     <div class="leader">
         {% for tweet in tweets %}
-        <p>{{ tweet.content }}</p>
+        <p>{{ tweet.content | urlize }}</p>
         {% endfor %}
     </div>
 {% endblock %}
