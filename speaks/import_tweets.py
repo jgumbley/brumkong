@@ -34,11 +34,11 @@ class ImportTweets:
         """
         tweet = Tweet()
         tweet.published_at = status.created_at
-        print status
-        tweet.content = status.text
+        from ttp import ttp
+        p = ttp.Parser()
+        tweet.content = p.parse(status.text).html
         if status.retweeted_status:
-            tweet.content = status.retweeted_status.text
-
+            tweet.content = p.parse(status.retweeted_status.text).html
         return tweet
 
     @transaction.atomic

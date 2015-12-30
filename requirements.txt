@@ -7,3 +7,4 @@ wsgiref
 psycopg2
 jinja2
 tweepy
+twitter-text-python
