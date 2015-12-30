@@ -34,7 +34,10 @@ class ImportTweets:
         """
         tweet = Tweet()
         tweet.published_at = status.created_at
+        print status
         tweet.content = status.text
+        if status.retweeted_status:
+            tweet.content = status.retweeted_status.text
 
         return tweet
 
