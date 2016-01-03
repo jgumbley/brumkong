@@ -37,7 +37,7 @@ class ImportTweets:
         from ttp import ttp
         p = ttp.Parser()
         tweet.content = p.parse(status.text).html
-        if status.retweeted_status:
+        if hasattr(status, 'retweeted_status') and status.retweeted_status:
             tweet.content = p.parse(status.retweeted_status.text).html
         return tweet
 
