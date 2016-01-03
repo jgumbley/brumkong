@@ -19,6 +19,7 @@ class Tweet(models.Model):
     """
     Cached imported tweet
     """
+    tweet_id = models.TextField(u"Twitter ID as String", max_length=200)
     content = models.TextField(u"Tweet Content", max_length=20000)
     published_at = models.DateTimeField(u"Published At")
     updated_at = models.DateTimeField(u"Last Update", auto_now=True)
