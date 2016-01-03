@@ -34,6 +34,7 @@ class ImportTweets:
         """
         tweet = Tweet()
         tweet.published_at = status.created_at
+        tweet.tweet_id = status.id_str
         from ttp import ttp
         p = ttp.Parser()
         tweet.content = p.parse(status.text).html
